@@ -50,16 +50,21 @@ public class DataParser {
         ArrayList<NSUServerData> nsuServerDataArrayList = parseNSUServerData(
                 nsuServerDataController.getNSUScheduleFile()
         );
-        ArrayList<NSUServerData> backUpArrayList = parseNSUServerData(
-                nsuServerDataController.getBackUpScheduleFile()
-        );
-        for (NSUServerData currentNSUServerData : nsuServerDataArrayList) {
-            for (NSUServerData currentBackUpData : backUpArrayList) {
-                if (Arrays.equals(currentBackUpData.getHash(), currentNSUServerData.getHash())) {
-                    currentNSUServerData.setRecentlyUpdated(false);
-                    break;
+
+        File backUpFile = nsuServerDataController.getBackUpScheduleFile();
+        if (backUpFile.length() != 0) {
+            ArrayList<NSUServerData> backUpArrayList = parseNSUServerData(
+                    backUpFile
+            );
+            for (NSUServerData currentNSUServerData : nsuServerDataArrayList) {
+                for (NSUServerData currentBackUpData : backUpArrayList) {
+                    if (Arrays.equals(currentBackUpData.getHash(), currentNSUServerData.getHash())) {
+                        currentNSUServerData.setRecentlyUpdated(false);
+                        break;
+                    }
                 }
             }
+
         }
         ArrayList<UserSettingsData> userSettingsDataArrayList = parseUserSettingsData();
         for (NSUServerData currentNSUServerData : nsuServerDataArrayList) {

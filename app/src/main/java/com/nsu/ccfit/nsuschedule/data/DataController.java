@@ -41,6 +41,7 @@ public class DataController {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public Data getData() throws IOException, ParserException {
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAA" + dataParser.parseScheduleUrl());
         return dataParser.getParsedData();
     }
 

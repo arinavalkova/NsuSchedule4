@@ -3,6 +3,8 @@ package com.nsu.ccfit.nsuschedule.data.wrappers.server;
 import com.nsu.ccfit.nsuschedule.data.common.Hasher;
 import com.nsu.ccfit.nsuschedule.data.parser.WeekDay;
 
+import java.util.Arrays;
+
 public class NSUServerData {
     private final byte[] hash;
     private final String location;
@@ -70,5 +72,20 @@ public class NSUServerData {
 
     public Time getEndTime() {
         return endTime;
+    }
+
+    @Override
+    public String toString() {
+        return "NSUServerData{" +
+                "hash=" + Arrays.toString(hash) +
+                ", location='" + location + '\'' +
+                ", description='" + description + '\'' +
+                ", summary='" + summary + '\'' +
+                ", weekDay=" + weekDay +
+                ", interval=" + interval +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", isRecentlyUpdated=" + isRecentlyUpdated +
+                '}';
     }
 }

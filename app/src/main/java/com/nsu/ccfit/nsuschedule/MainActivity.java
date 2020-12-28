@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             if (!dataController.loadNSUServerData()) {
                 loadChooseGroupActivity();
+                return;
             }
             System.out.println(dataController.getData());
         } catch (IOException | ParserException e) {

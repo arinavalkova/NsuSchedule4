@@ -23,7 +23,13 @@ public class NSUServerDataController {
         this.backUpScheduleFile = new File(filesDir, BACK_UP_FILE);
     }
 
-    public boolean loadData(final String scheduleUrl) {
+    public boolean loadData(final String scheduleUrl) throws IOException {
+        if (!nsuScheduleData.exists()) {
+            nsuScheduleData.createNewFile();
+        }
+        if (!backUpScheduleFile.exists()) {
+            backUpScheduleFile.createNewFile();
+        }
         final CallBack callBack = new CallBack();
         try {
             new Copyier().copyFileTo(nsuScheduleData, backUpScheduleFile);
