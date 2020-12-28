@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NsuSchedule</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="nsu">TODO</string>
+    <string name="label_for_group">Введите номер группы</string>
+    <string name="ok_button">ОК</string>
+</resources>
