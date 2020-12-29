@@ -1,4 +1,4 @@
-package com.nsu.ccfit.nsuschedule.ui.main;
+package com.nsu.ccfit.nsuschedule.activities;
 
 import android.content.Context;
 import android.os.Build;
@@ -19,16 +19,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.nsu.ccfit.nsuschedule.DataViewModel;
+import com.nsu.ccfit.nsuschedule.scheduleabstract.DataViewModel;
 import com.nsu.ccfit.nsuschedule.R;
-import com.nsu.ccfit.nsuschedule.data.wrappers.TimeIntervalData;
-import com.nsu.ccfit.nsuschedule.scheduleabstract.Parity;
 import com.nsu.ccfit.nsuschedule.scheduleabstract.ScheduleItem;
 
 import net.fortuna.ical4j.data.ParserException;
-
-import java.io.IOException;
-import java.util.Objects;
 
 /**
  * A placeholder fragment containing a simple view.

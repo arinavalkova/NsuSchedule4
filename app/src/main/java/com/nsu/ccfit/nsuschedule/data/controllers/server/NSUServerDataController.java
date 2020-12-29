@@ -11,8 +11,6 @@ import java.nio.channels.ReadableByteChannel;
 
 public class NSUServerDataController {
 
-    //Собственность Арины, переделывать только с ее разрешения, использовать можно без ее разрешения
-
     private final static String NSU_SCHEDULE_FILE = "nsu_schedule_file4.ics";
     private final static String BACK_UP_FILE = "nsu_schedule_back_up.ics";
     private File nsuScheduleData;

@@ -1,4 +1,4 @@
-package com.nsu.ccfit.nsuschedule;
+package com.nsu.ccfit.nsuschedule.activities;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.nsu.ccfit.nsuschedule.R;
 import com.nsu.ccfit.nsuschedule.data.DataController;
 
 import java.io.IOException;

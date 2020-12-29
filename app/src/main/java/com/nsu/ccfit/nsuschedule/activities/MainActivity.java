@@ -1,4 +1,4 @@
-package com.nsu.ccfit.nsuschedule;
+package com.nsu.ccfit.nsuschedule.activities;
 
 import android.content.Intent;
 import android.os.Build;
@@ -11,7 +11,9 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.nsu.ccfit.nsuschedule.ui.main.SectionsPagerAdapter;
+import com.nsu.ccfit.nsuschedule.R;
+import com.nsu.ccfit.nsuschedule.scheduleabstract.DataViewModel;
+import com.nsu.ccfit.nsuschedule.scheduleabstract.SectionsPagerAdapter;
 
 import net.fortuna.ical4j.data.ParserException;
 
@@ -30,21 +32,9 @@ public class MainActivity extends AppCompatActivity {
                     loadChooseGroupActivity();
                     return;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParserException e) {
+        } catch (IOException | ParserException e) {
             e.printStackTrace();
         }
-
-
-//        DataController dataController = new DataController(getFilesDir());
-//        try {
-//            if (!dataController.loadNSUServerData()) {
-//            }
-//            System.out.println(dataController.getData());
-//        } catch (IOException | ParserException e) {
-//            e.printStackTrace();
-//        }
 
         setContentView(R.layout.activity_main);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());

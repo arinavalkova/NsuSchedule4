@@ -1,17 +1,16 @@
-package com.nsu.ccfit.nsuschedule;
+package com.nsu.ccfit.nsuschedule.activities;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
-import android.widget.CheckBox;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
+import com.nsu.ccfit.nsuschedule.scheduleabstract.DataViewModel;
 import com.nsu.ccfit.nsuschedule.data.DataController;
 import com.nsu.ccfit.nsuschedule.data.wrappers.TimeIntervalData;
 

@@ -1,4 +1,4 @@
-package com.nsu.ccfit.nsuschedule.ui.main;
+package com.nsu.ccfit.nsuschedule.scheduleabstract;
 
 import android.content.Context;
 
@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.nsu.ccfit.nsuschedule.R;
+import com.nsu.ccfit.nsuschedule.activities.PlaceholderFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
