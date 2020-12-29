@@ -31,6 +31,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 public class DataParser {
+    private static final String COLON = ":";
     private static final String SEMICOLON = ";";
     private static final String EQUALLY = "=";
     private static final String T = "T";
@@ -119,10 +120,12 @@ public class DataParser {
             for (Iterator j = component.getProperties().iterator(); j.hasNext(); ) {
                 Property property = (Property) j.next();
                 if (property.getName().equals(ParseValue.LOCATION.toString())) {
-                    location = property.getValue();
+                    String[] parameters = property.getValue().split(COLON);
+                    location = parameters[1].trim();
                 }
                 if (property.getName().equals(ParseValue.DESCRIPTION.toString())) {
-                    description = property.getValue();
+                    String[] parameters = property.getValue().split(COLON);
+                    description = parameters[1].trim();
                 }
                 if (property.getName().equals(ParseValue.SUMMARY.toString())) {
                     summary = property.getValue();
@@ -191,14 +194,10 @@ public class DataParser {
 
     public Time parseTimeLine(String timeLine) {
         String[] parameters = timeLine.split(T);
-        int hour =
-                Character.digit(parameters[1].charAt(0), 10) * 10
-                        +
-                        Character.digit(parameters[1].charAt(1), 10);
-        int minutes =
-                Character.digit(parameters[1].charAt(2), 10) * 10
-                        +
-                        Character.digit(parameters[1].charAt(3), 10);
-        return new Time(hour, minutes);
+        String hour1 = Character.toString(parameters[1].charAt(0));
+        String hour2 = Character.toString(parameters[1].charAt(1));
+        String minutes1 = Character.toString(parameters[1].charAt(2));
+        String minutes2 = Character.toString(parameters[1].charAt(3));
+        return new Time(hour1 + hour2, minutes1 + minutes2);
     }
 }

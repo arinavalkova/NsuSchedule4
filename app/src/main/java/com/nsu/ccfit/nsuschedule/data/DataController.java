@@ -61,15 +61,15 @@ public class DataController {
         userSettingsDataController.setScheduleUrl(scheduleUrl);
     }
 
-    public boolean changeIsVisibleByHash(byte[] hash) throws IOException {
-        return userSettingsDataController.changeIsVisibleByHash(hash);
+    public boolean changeIsVisibleByHash(byte[] hash, boolean result) throws IOException {
+        return userSettingsDataController.changeIsVisibleByHash(hash, result);
     }
 
-    public boolean changeIsNotificationsAllowedByHash(byte[] hash) throws IOException {
-        return userSettingsDataController.changeIsNotificationsAllowedByHash(hash);
+    public boolean changeIsNotificationsAllowedByHash(byte[] hash, boolean result) throws IOException {
+        return userSettingsDataController.changeIsNotificationsAllowedByHash(hash, result);
     }
 
-    public boolean changeIsAlarmsAllowedByHash(byte[] hash) throws IOException {
-        return userSettingsDataController.changeIsAlarmsAllowedByHash(hash);
+    public boolean changeIsAlarmsAllowedByHash(byte[] hash, boolean result) throws IOException {
+        return userSettingsDataController.changeIsAlarmsAllowedByHash(hash, result);
     }
 }

@@ -4,19 +4,13 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.RequiresApi;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-
-import com.nsu.ccfit.nsuschedule.data.DataController;
 import com.nsu.ccfit.nsuschedule.ui.main.SectionsPagerAdapter;
 
 import net.fortuna.ical4j.data.ParserException;
@@ -30,16 +24,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DataController dataController = new DataController(getFilesDir());
+        final DataViewModel model = ViewModelProviders.of(this).get(DataViewModel.class);
         try {
-            if (!dataController.loadNSUServerData()) {
-                loadChooseGroupActivity();
-                return;
+            if (!model.loadData()) {
+                    loadChooseGroupActivity();
+                    return;
             }
-            System.out.println(dataController.getData());
-        } catch (IOException | ParserException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParserException e) {
             e.printStackTrace();
         }
+
+
+//        DataController dataController = new DataController(getFilesDir());
+//        try {
+//            if (!dataController.loadNSUServerData()) {
+//            }
+//            System.out.println(dataController.getData());
+//        } catch (IOException | ParserException e) {
+//            e.printStackTrace();
+//        }
 
         setContentView(R.layout.activity_main);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
@@ -47,15 +52,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = findViewById(R.id.fab);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     private void loadChooseGroupActivity() {

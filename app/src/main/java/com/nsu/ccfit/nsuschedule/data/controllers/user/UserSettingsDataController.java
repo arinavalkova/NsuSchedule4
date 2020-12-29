@@ -86,7 +86,7 @@ public class UserSettingsDataController {
         return userSettingsData;
     }
 
-    public boolean changeIsVisibleByHash(byte[] hash) throws IOException {
+    public boolean changeIsVisibleByHash(byte[] hash, boolean token) throws IOException {
         boolean result = false;
         BufferedReader reader = new BufferedReader(new FileReader(userSettingsFile));
         Gson gson = new Gson();
@@ -94,11 +94,7 @@ public class UserSettingsDataController {
         ArrayList<IntervalJson> intervalJsonArrayList = userSettingsJson.getIntervalJsons();
         for (IntervalJson currentIntervalJson : intervalJsonArrayList) {
             if (Arrays.equals(currentIntervalJson.getHash(), hash)) {
-                if (currentIntervalJson.getIsVisible()) {
-                    currentIntervalJson.setIsVisible(false);
-                } else {
-                    currentIntervalJson.setIsVisible(true);
-                }
+                currentIntervalJson.setIsVisible(token);
                 result = true;
                 break;
             }
@@ -112,7 +108,7 @@ public class UserSettingsDataController {
         return result;
     }
 
-    public boolean changeIsNotificationsAllowedByHash(byte[] hash) throws IOException {
+    public boolean changeIsNotificationsAllowedByHash(byte[] hash, boolean token) throws IOException {
         boolean result = false;
         BufferedReader reader = new BufferedReader(new FileReader(userSettingsFile));
         Gson gson = new Gson();
@@ -120,11 +116,7 @@ public class UserSettingsDataController {
         ArrayList<IntervalJson> intervalJsonArrayList = userSettingsJson.getIntervalJsons();
         for (IntervalJson currentIntervalJson : intervalJsonArrayList) {
             if (Arrays.equals(currentIntervalJson.getHash(), hash)) {
-                if (currentIntervalJson.getNotifications()) {
-                    currentIntervalJson.setNotifications(false);
-                } else {
-                    currentIntervalJson.setNotifications(true);
-                }
+                currentIntervalJson.setNotifications(token);
                 result = true;
                 break;
             }
@@ -138,7 +130,7 @@ public class UserSettingsDataController {
         return result;
     }
 
-    public boolean changeIsAlarmsAllowedByHash(byte[] hash) throws IOException {
+    public boolean changeIsAlarmsAllowedByHash(byte[] hash, boolean token) throws IOException {
         boolean result = false;
         BufferedReader reader = new BufferedReader(new FileReader(userSettingsFile));
         Gson gson = new Gson();
@@ -146,11 +138,7 @@ public class UserSettingsDataController {
         ArrayList<IntervalJson> intervalJsonArrayList = userSettingsJson.getIntervalJsons();
         for (IntervalJson currentIntervalJson : intervalJsonArrayList) {
             if (Arrays.equals(currentIntervalJson.getHash(), hash)) {
-                if (currentIntervalJson.getAlarm()) {
-                    currentIntervalJson.setAlarm(false);
-                } else {
-                    currentIntervalJson.setAlarm(true);
-                }
+                currentIntervalJson.setAlarm(token);
                 result = true;
                 break;
             }

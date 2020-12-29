@@ -1,19 +1,19 @@
 package com.nsu.ccfit.nsuschedule.data.wrappers.server;
 
 public class Time {
-    private final int hours;
-    private final int minutes;
+    private final String hours;
+    private final String minutes;
 
-    public Time(int hours, int minutes) {
+    public Time(String hours, String minutes) {
         this.hours = hours;
         this.minutes = minutes;
     }
 
-    public int getHours() {
+    public String getHours() {
         return hours;
     }
 
-    public int getMinutes() {
+    public String getMinutes() {
         return minutes;
     }
 

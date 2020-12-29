@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">NsuSchedule</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
     <string name="nsu">TODO</string>
     <string name="label_for_group">Введите номер группы</string>
     <string name="ok_button">ОК</string>
+    <string name="tab_text_1">пн</string>
+    <string name="tab_text_2">вт</string>
+    <string name="tab_text_3">ср</string>
+    <string name="tab_text_4">чт</string>
+    <string name="tab_text_5">пт</string>
+    <string name="tab_text_6">сб</string>
+    <string name="notifications">Уведомления</string>
+    <string name="alarm">Будильник</string>
+    <string name="isVisible">Скрывать пару</string>
 </resources>
